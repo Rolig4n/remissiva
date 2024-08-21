@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'remissiva.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Roligan$default',
         'USER': USER,
         'PASSWORD': PASSWORD,
