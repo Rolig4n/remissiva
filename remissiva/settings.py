@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'polls.apps.PollsConfig'
 ]
 
 MIDDLEWARE = [
@@ -83,14 +84,23 @@ WSGI_APPLICATION = 'remissiva.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Roligan$default',
-        'USER': USER,
-        'PASSWORD': PASSWORD,
-        'HOST': HOST,
-    }
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'master',#'Roligan$default',
+        'USER': 'hiago.batista',#USER,
+        'PASSWORD': 'abroba',#PASSWORD,
+        'HOST': 'DSKDEV02\SQLEXPRESS',#HOST,
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+            'Trusted_Connection': 'yes',
+        },
+    },
 }
-
+# LINKS usados ate agora
+# https://docs.djangoproject.com/pt-br/5.1/topics/forms/
+# https://developer.mozilla.org/pt-BR/docs/Learn/Server-side/Django/skeleton_website#conectando_o_mapeador_de_url
+# https://youtu.be/RGxYlL2Dm54?t=257
+# set this to False if you want to turn off pyodbc's connection pooling
+DATABASE_CONNECTION_POOLING = False
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -114,9 +124,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
